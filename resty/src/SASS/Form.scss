@@ -1,0 +1,46 @@
+Form {
+  text-align: center;
+
+  input:first-of-type{
+    padding-left: 3%;
+    margin-right: 1%;
+    border: black solid 1px;
+  }
+  .buttons {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+
+    .get,
+    .post,
+    .put,
+    .delete {
+      margin: 1%;
+    }
+
+ 
+
+    :focus{
+      background-color: blueviolet;
+    }
+
+    
+  }
+}
+
+.result {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  border: black 1px solid;
+  background-color: gray;
+  padding: 10%;
+  p {
+    text-align: left;
+    padding: 2%;
+    font-size: 1em;
+    font-weight: bold;
+  }
+
+}
