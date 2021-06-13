@@ -20,5 +20,7 @@ Unit Tests: npm run test
 <br />
 -----------------------------------------
 ## UML
-![](resty/src/RESTyUML.png)
+
+
+![](./src/RESTyUML.png)
 
