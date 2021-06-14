@@ -11,6 +11,7 @@ Unit Tests: npm run test
 
 
 ## Deployment
+[GitHub Pages](https://nihadzeidan.github.io/resty/)
 
 <br />
 
@@ -21,6 +22,12 @@ Unit Tests: npm run test
 -----------------------------------------
 ## UML
 
-
+  Lab 1
+  
 ![](./src/RESTyUML.png)
+
+
+  Lab 2
+
+![](./src/RESTyUML2.png)
 
