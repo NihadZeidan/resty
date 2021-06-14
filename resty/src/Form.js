@@ -22,20 +22,29 @@ class Form extends React.Component {
     let valueMethod = event.target.value;
     const UserInput = { ...this.state, Method: valueMethod };
     this.setState(UserInput);
-    
+  };
+
+  handelSubmit = async (e) => {
+    e.preventDefault();
+    let header = await fetch(`${this.state.RESTurl}`);
+    let body = await header.json();
+
+    let results = header.results;
+    let count = header.count;
+    this.props.handler(results, count, body, header);
   };
 
   render() {
     return (
-      <div>
-        <form className="from">
-          <input
+      <React.Fragment>
+        <form className="from" onSubmit={this.handelSubmit}>
+          <textarea
             onChange={this.handleURL}
-            type="text"
             placeholder="Enter URL"
-          />
-          <input  type="submit" value="GO !" />
-          
+          ></textarea>
+
+          <button> SUBMIT </button>
+
           <div className="buttons">
             <button onClick={this.handleMethod} className="get" value="GET">
               GET
@@ -63,7 +72,7 @@ class Form extends React.Component {
           <p> URL: {this.state.RESTurl} </p>
           <p> METHOD: {this.state.Method} </p>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
