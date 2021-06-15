@@ -6,9 +6,7 @@ class Results extends React.Component {
   render() {
     return (
       <React.Fragment>
-        
-        
-        <p id="headers"> {this.props.data.headers}</p>
+        <p id="headers"> Header:  {this.props.data.headers}</p>
 
       
       </React.Fragment>
