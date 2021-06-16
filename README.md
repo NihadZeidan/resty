@@ -11,7 +11,10 @@ Unit Tests: npm run test
 
 
 ## Deployment
+
 [GitHub Pages](https://nihadzeidan.github.io/resty/)
+
+[Netlify](https://pedantic-austin-79aefa.netlify.app/)
 
 <br />
 
