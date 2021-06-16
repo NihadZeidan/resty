@@ -1,6 +1,6 @@
 {
     "name": "resty",
-    "homepage": "https://NihadZeidan.github.io/resty",
+    "homepage": "./",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
