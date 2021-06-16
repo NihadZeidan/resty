@@ -1,30 +1,50 @@
 Form {
   text-align: center;
 
-  input:first-of-type{
-    padding-left: 3%;
-    margin-right: 1%;
-    border: black solid 1px;
+  input:first-of-type {
+    padding-right: 5%;
+    border: rgb(41, 39, 39) solid 5px;
+  }
+
+  textarea {
+    display: block;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: rgb(41, 39, 39) solid 5px;
+    width: 40%;
+    padding-bottom: 8%;
+  }
+
+  .go {
+    padding-left: 2%;
+    padding-right: 2%;
+
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: rgb(202, 176, 104);
   }
   .buttons {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2%;
-
+    margin-top: 1%;
+    
     .get,
     .post,
     .put,
     .delete {
-      margin: 1%;
+      border: black 2px solid;
+      margin: .5%;
     }
 
- 
-
-    :focus{
-      background-color: blueviolet;
+    :focus {
+      background-color: rgb(202, 176, 104);
     }
-
-    
+    :hover{
+      background-color: rgb(202, 176, 104);
+      transform: scale(120%);
+    }
   }
 }
 
@@ -33,14 +53,16 @@ Form {
   margin-left: auto;
   margin-right: auto;
   margin-top: 2%;
-  border: black 1px solid;
-  background-color: gray;
+  border: rgb(251, 242, 242) 5px solid;
+  background-color: rgb(41, 39, 39);
   padding: 1%;
   p {
     text-align: left;
-    padding: 2%;
     font-size: 1em;
     font-weight: bold;
+    color: rgb(230, 215, 215);
   }
-
+  h3 {
+    color: rgb(230, 215, 215);
+  }
 }
