@@ -1,15 +1,17 @@
 import "./SASS/App.scss";
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+
+
+import IF from "./IF";
 import Form from "./Form";
 import Headers from "./Headers";
 import History from "./History";
-
+import SnippetHistory from "./SnippetHistory";
+import Help from "./Help";
+import { Route, Switch } from "react-router-dom";
 
 import JSONPretty from "react-json-pretty";
-
-import "./SASS/JSON.scss";
+import 'react-json-pretty/themes/monikai.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,32 +21,59 @@ class App extends React.Component {
       count: 0,
       response: {},
       header: {},
+      formMethod: "",
+      formURL: "",
+      History:  []
     };
   }
 
-  formHandleUpdate = (results, count, response, header) => {
-    this.setState({ results, count, response, header });
+  formHandleUpdate = (results, count, response, header, history) => {
+    this.setState({
+      results,
+      count,
+      response,
+      header,
+      History: JSON.parse(history),
+
+    });
+  };
+
+  refillTheForm = (method, url) => {
+    this.setState({ formMethod: method, formURL: url });
   };
 
   render() {
     return (
       <React.Fragment>
-        <Header></Header>
+        <main>
+          <Switch>
+            <Route exact path="/history">
+              <History hist={this.state.History} refill={this.refillTheForm} />
+            </Route>
 
-        <History> </History>
+            <Route exact path="/">
+              <Form
+                handler={this.formHandleUpdate}
+                url={this.state.formURL}
+                method={this.state.formMethod}
+              ></Form>
+              <SnippetHistory  hist={this.state.History} refill={this.refillTheForm} />
+              
+              <Headers data={this.state.header}></Headers>
 
-        <Form handler={this.formHandleUpdate}></Form>
+              <IF condition={Object.keys(this.state.response).length}>
+                <JSONPretty
+                  className="json"
+                  data={this.state.response}
+                ></JSONPretty>
+              </IF>
+            </Route>
 
-        <Headers data={this.state.header}></Headers>
-
-        
-          <JSONPretty className="json" data={this.state.response}></JSONPretty>
-        
-      
-    
-      
-
-        <Footer></Footer>
+            <Route exact path="/help">
+              <Help />
+            </Route>
+          </Switch>
+        </main>
       </React.Fragment>
     );
   }
