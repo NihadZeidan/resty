@@ -23,7 +23,7 @@ class App extends React.Component {
       header: {},
       formMethod: "",
       formURL: "",
-      History:  []
+      History:  JSON.parse(localStorage.getItem('recentInput'))
     };
   }
 
