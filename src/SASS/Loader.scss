@@ -1,16 +1,21 @@
 .loader {
     border: 16px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 16px solid rgb(66, 173, 209);
-    border-right: 16px solid lightgray;
-    border-bottom: 16px solid rgb(66, 173, 209);
-    border-left: 16px solid lightgray;
+    border-top: 16px solid rgba(99, 66, 25, 0.578);
+    border-right: 16px solid rgba(255, 255, 255, 0.537);
+    border-bottom: 16px solid rgba(99, 66, 25, 0.551);
+    border-left: 16px solid rgba(255, 255, 255, 0.476);
     width: 120px;
     height: 120px;
     margin:auto;
     margin-top: 5%;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
+    position: absolute;
+    z-index: 2;
+    left: 45%;
+    top: 70%;
+  
   }
   
   @-webkit-keyframes spin {

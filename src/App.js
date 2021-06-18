@@ -62,7 +62,7 @@ class App extends React.Component {
               <Headers data={this.state.header}></Headers>
 
               <IF condition={Object.keys(this.state.response).length}>
-                <JSONPretty
+                <JSONPretty 
                   className="json"
                   data={this.state.response}
                 ></JSONPretty>

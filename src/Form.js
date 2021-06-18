@@ -39,8 +39,7 @@ class Form extends React.Component {
       let data = await FromUser.json();
       let results = data.results;
       let count = data.count;
-      
-      
+
       if (data) {
         this.setState({ results: data, Body: body, flag: !this.state.flag });
         const { Method, RESTurl } = this.state;
@@ -49,11 +48,14 @@ class Form extends React.Component {
           let newData = JSON.parse(localStorage.getItem("recentInput"));
 
           let found = newData.find((obj) => {
-            return obj.Method === Method && obj.RESTurl === RESTurl;
+            return (
+              (obj.Method === Method || obj.Method === "") &&
+              (obj.RESTurl === RESTurl || obj.RESTurl === "")
+            );
           });
 
           if (!found) {
-            newData.push({ Method, RESTurl, data});
+            newData.push({ Method, RESTurl, data });
             localStorage.setItem("recentInput", JSON.stringify(newData));
           }
         } else {
@@ -63,9 +65,7 @@ class Form extends React.Component {
           );
         }
       }
-      // this.setState({ History: JSON.parse(localStorage.getItem("recentInput")) });
-
-      let inLocal = localStorage.getItem("recentInput")
+      let inLocal = localStorage.getItem("recentInput");
 
       this.props.handler(results, count, data, FromUser, inLocal);
     }, 2000);
@@ -104,9 +104,12 @@ class Form extends React.Component {
             placeholder="Enter URL"
           />
 
-          <textarea name="body" placeholder="Body Data must be an object" />
+          <textarea name="body" placeholder="Body Goes here !" />
 
-          <button onClick={this.toggle} className="go"> GO !! </button>
+          <button onClick={this.toggle} className="go">
+            {" "}
+            GO !!{" "}
+          </button>
           <IF condition={this.state.flag}>
             <Loader></Loader>
           </IF>
